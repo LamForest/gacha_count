@@ -38,19 +38,19 @@ export default defineComponent({
       // type: string as PropType<string> //?
       type: String
     },
-    // expand: {
-    //   //是否可以点击展开
-    //   required: false,
-    //   default: false,
-    //   type: 
-    // },
+    defaultExpand: {
+      //默认是否展开
+      required: false,
+      default: false,
+      type: Boolean
+    },
   },
   setup(props) {
     //如果要在setup中使用props，那么props要作为参数传入setup
     // const a : string = 5;
     // const store = inject("store");
     const store = useStore();
-    const isExpand = ref<boolean>(false);
+    const isExpand = ref<boolean>(props.defaultExpand);
     const show = ref<boolean>(true);
     const checkboxVModel = ref<Array<boolean>>(
       new Array<boolean>(props.purchaseList.length).fill(false)

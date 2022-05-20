@@ -1,8 +1,8 @@
 <template>
   <!-- <el-row justify="space-between" > -->
     <!-- <div class="busuanzi" id='header-container'> -->
-      <el-tag class="ml-2" type="success" >
-      <span id="my_busuanzi_container">
+      <el-tag class="ml-2" type="success" size='large' >
+      <span id="my_busuanzi_container" >
         总计查询次数：
         <span id="busuanzi_value_site_pv"></span>
       </span>
