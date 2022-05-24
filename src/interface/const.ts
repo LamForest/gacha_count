@@ -22,14 +22,14 @@ import { ActivityItem } from "./types"
 
 // type a = TYPE_PURCHASE;
 export const ResObtainType:Record<string, string> = {
-    regular : "日常任务、签到、剿灭行动", //日常
+    regular : "日常任务、签到、剿灭行动、更新、闪断、绿票商店", //日常
     // checkin : "签到",
     purchase : "月卡、大月卡、组合包、源石交易所",
-    activity : '活动',
+    activity : 'SideStory',
     // update : '更新',
     // main : '主线', //TODO
     // yellowTicket : '黄票'
-    other: '杂项',
+    // other: '杂项',
 
 };
 
