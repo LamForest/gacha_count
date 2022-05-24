@@ -2,7 +2,7 @@
 <div>
     <clickable-divider :isExpand="isExpand" title="计算过程" @click="isExpand = !isExpand"/>
     <el-collapse-transition>
-    <div v-if="isExpand">
+    <div v-show="isExpand">
         <el-card class="box-card" shadow="hover" v-for="(value, key) in collapseList" :title="key"  :key='key'>
             <!-- <div class="el-card__header"> -->
             <div class="card-header">
@@ -67,7 +67,7 @@ export default defineComponent({
             };
             const allDetails: Array<ResDetail> = store.getters['allDetails'];
             for(const item of allDetails){
-                ret[item.type].push(item.description);
+                ret[item.type].push(item.detail);
             }
             // console.log(collapseList)
             return ret;

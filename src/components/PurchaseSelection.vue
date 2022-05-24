@@ -3,7 +3,7 @@
     <clickable-divider :isExpand="isExpand" :title="title" @click="isExpand = !isExpand"/>
     <!-- <transition> -->
         <el-collapse-transition>
-      <el-row justify="space-evenly" v-if="isExpand">
+      <el-row justify="space-evenly" v-show="isExpand">
         <el-checkbox
           class="checkbox"
           v-for="(item, index) in purchaseList"

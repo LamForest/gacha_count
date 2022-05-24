@@ -70,7 +70,7 @@ export const store = createStore<State>({
         for(const k in state.checkeds){
           const item = state.checkeds[k];
           ret.push({
-            description: item.description,
+            detail: item.detail,
             type: item.type,
           });
         }

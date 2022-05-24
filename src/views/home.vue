@@ -8,7 +8,9 @@
           
           <hello-world/>
       </el-main>
-      <el-footer>Footer</el-footer>
+      <el-footer>
+        <my-footer/>  
+      </el-footer>
     </el-container>
   </div>
 </template>
@@ -16,11 +18,13 @@
 <script>
 import MyHeader from '@/components/MyHeader.vue'
 import HelloWorld from "./HelloWorld.vue"
+import MyFooter from './MyFooter.vue'
 
 export default {
     components: {
         HelloWorld,
         MyHeader,
+        MyFooter,
         // Home,
     },
 }

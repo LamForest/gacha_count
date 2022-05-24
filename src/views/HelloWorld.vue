@@ -1,6 +1,8 @@
 <template>
   <resouce-result/>
+  <cal-normal-resource/>
   <user-input/>
+
 
   <div>
     <collapse-details />
@@ -15,6 +17,7 @@ import CollapseDetails from "../components/CollapseDetails.vue";
 import ResouceResult from "../components/ResourceResult.vue"
 import PurchaseSelection from '../components/PurchaseSelection.vue'
 import UserInput from "./UserInput.vue";
+import CalNormalResource from "../components/CalNormalResource.vue";
 // import
 
 
@@ -23,6 +26,8 @@ export default defineComponent({
     CollapseDetails,
     ResouceResult,
     UserInput,
+    CalNormalResource,
+    
   },
   // setup(){
   // }
