@@ -8,7 +8,7 @@
       </span>
       </el-tag>
 
-      <div id='myAvatar'>
+      <div id='myAvatar' v-if='false'>
         <!-- <el-col> -->
         <a href='https://lamforest.github.io/'>
         <el-avatar

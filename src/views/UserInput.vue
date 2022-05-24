@@ -1,59 +1,64 @@
 <template>
   <div class="hello">
-
     <div>
-      <!-- 源石交易所 -->
-      <purchase-selection :purchaseList="reviewActivityList" title="活动复刻"/>
+      <!-- 活动复刻 -->
+      <purchase-selection :purchaseList="reviewActivityList" title="活动复刻" />
     </div>
+    <div>
+      <!-- 大月卡 & 月卡 -->
+      <purchase-selection
+        :purchaseList="monthCardPurchaseList"
+        title="月卡 & 大月卡（每月寻访组合包）"
+      />
+    </div>
+
     <!-- <el-checkbox v-model="aaa" label="jjj"> 123</el-checkbox> -->
     <div>
       <!-- 源石交易所 -->
-      <purchase-selection :purchaseList="shiPurchaseList" title="源石交易所"/>
+      <purchase-selection :purchaseList="shiPurchaseList" title="源石交易所" />
     </div>
     <div>
       <!-- 礼包 -->
-      <purchase-selection :purchaseList="zuhebaoPurchaseList" title="组合包"/>
+      <purchase-selection :purchaseList="zuhebaoPurchaseList" title="组合包" />
     </div>
-
-    <div>
-      <!-- 大月卡 -->
-      <purchase-selection :purchaseList="bigMonthCardPurchaseList" title="大月卡（每月寻访组合包）"/>
-    </div>
-  </div> 
+  </div>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, ref, provide } from "@vue/runtime-core";
-import { PurchaseItem, PurchaseList } from "../interface/types"
+import { PurchaseItem, PurchaseList } from "../interface/types";
 
 import { ResObtainType } from "@/interface/const";
 //引入组件
-import PurchaseSelection from '../components/PurchaseSelection.vue'
-import {shiList, zuhebaoList, bigMonthCardList, reviewActivityList} from '../utils/data'
+import PurchaseSelection from "../components/PurchaseSelection.vue";
+import {
+  shiList,
+  zuhebaoList,
+  monthCardList,
+  reviewActivityList,
+} from "../utils/data";
 // import
 
-
 export default defineComponent({
-  components:{
+  components: {
     PurchaseSelection,
   },
-  setup(){
+  setup() {
     // const store = useStore();
     // provide('store', store)
-    
 
-    const shiPurchaseList = ref<PurchaseList>(shiList); 
+    const shiPurchaseList = ref<PurchaseList>(shiList);
     const zuhebaoPurchaseList = ref<PurchaseList>(zuhebaoList);
-    const bigMonthCardPurchaseList = ref<PurchaseList>(bigMonthCardList);
-    
+    const monthCardPurchaseList = ref<PurchaseList>(monthCardList);
+
     return {
-      shiPurchaseList, 
+      shiPurchaseList,
       zuhebaoPurchaseList,
-      bigMonthCardPurchaseList,
+      monthCardPurchaseList,
       reviewActivityList,
-      }
-  }
-})
+    };
+  },
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

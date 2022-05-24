@@ -8,7 +8,7 @@
 <script lang="ts">
 import { ActivityItem } from '@/interface/types';
 import { useStore } from '@/store/store'
-import { activityShop, newActivityList } from '@/utils/data';
+import { activityShopList, newActivityList, otherList, regularList, summerList } from '@/utils/data';
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -19,9 +19,21 @@ export default defineComponent({
             store.commit('check', newActivityList[ind])
         }
 
-        for(const ind in activityShop){
-            store.commit('check', activityShop[ind])
+        for(const ind in activityShopList){
+            store.commit('check', activityShopList[ind])
         }
+
+        regularList.forEach((item)=>{
+            store.commit('check', item);
+        })
+
+        summerList.forEach((item) =>{
+            store.commit('check', item);
+        })
+
+        otherList.forEach((item) =>{
+            store.commit('check', item);
+        })
     },
 })
 </script>

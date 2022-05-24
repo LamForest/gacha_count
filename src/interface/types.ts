@@ -7,6 +7,23 @@ const cal_cp_ratio = function(rmb: number, shi:number, yu:number, chou:number,sh
     return rmb / total_chou;
   }
 
+const formatResourcesString = (param: ResourcesParam) => {
+    let detail = ""
+    if(param.yu){
+        detail += `${param.yu} 合成玉；`
+    }
+    if(param.shi){
+        detail += `${param.shi} 源石；`
+    }
+    if(param.chou){
+        detail += `${param.chou} 寻访凭证；`
+    }
+    if(param.chou_10){
+        detail += `${param.chou_10} 十连寻访凭证；`
+    }
+    return detail;
+}
+
 class ResourcesParam{
     shi?: number
     yu?: number
@@ -58,7 +75,8 @@ class PurchaseItem extends DetailedResources{
         ){
             super(CONST.ResObtainType.purchase , "", description,name, param)
             this.cpratio = cal_cp_ratio(price, this.shi, this.yu, this.chou, this.chou_10);
-            this.detail = `${description}：抽卡性价比为${this.cpratio.toFixed(2)}元/抽;`
+            const resString = 
+            this.detail = `${description}：${formatResourcesString(param)}抽卡性价比为${this.cpratio.toFixed(2)}元/抽;`
         }
 }
 
@@ -98,19 +116,8 @@ class RegularItem extends DetailedResources{
         param: ResourcesParam,
         ){
             super(CONST.ResObtainType.regular , "", description,name, param)
-            this.detail = `${description} ： `
-            if(param.yu){
-                this.detail += `${param.yu} 合成玉；`
-            }
-            if(param.shi){
-                this.detail += `${param.yu} 源石；`
-            }
-            if(param.chou){
-                this.detail += `${param.yu} 寻访凭证；`
-            }
-            if(param.chou_10){
-                this.detail += `${param.chou_10} 十连寻访凭证；`
-            }
+            this.detail = `${description} ： ${formatResourcesString(param)}`
+
     }
 }
 

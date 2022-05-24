@@ -69,7 +69,7 @@ export default defineComponent({
 
 <style scoped>
 .checkbox {
-  width: 220px;
+  /* width: 180px; */
   /* checkbox默认margin-right=30px
     但是奇怪的是， 最后一个checkbox的margin-right = 0
     这使得checkbox的宽度不一致

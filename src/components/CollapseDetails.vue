@@ -6,7 +6,7 @@
         <el-card class="box-card" shadow="hover" v-for="(value, key) in collapseList" :title="key"  :key='key'>
             <!-- <div class="el-card__header"> -->
             <div class="card-header">
-                <span>{{key + '获得的抽卡资源'}} </span>
+                <span>{{key }} </span>
                 <!-- <el-button class="button" text>Operation button</el-button> -->
             </div>
             <!-- </div> -->
@@ -75,8 +75,6 @@ export default defineComponent({
 
         return {activeName, collapseList, concat, isExpand}
         
-
-
     },
 })
 </script>
@@ -85,11 +83,13 @@ export default defineComponent({
   display: flex;
   justify-content: space-evenly;
   margin-top: -10px;
+  margin-bottom: 10px;
   /* align-items: center; */
 }
 .text {
   text-align: start;
-  font-size: 12px;
+  font-size: 13px;
+  line-height: 140%;
 }
 
 </style>
