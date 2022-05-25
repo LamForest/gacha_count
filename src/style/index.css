@@ -3,3 +3,6 @@
     /* --el-color-primary: var(--main) */
 }
 
+#my_busuanzi_container {
+    color: var(--el-text-color-primary)
+}

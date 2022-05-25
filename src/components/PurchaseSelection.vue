@@ -3,7 +3,8 @@
     <clickable-divider :isExpand="isExpand" :title="title" @click="isExpand = !isExpand"/>
     <!-- <transition> -->
         <el-collapse-transition>
-      <el-row justify="space-evenly" v-show="isExpand">
+      <!-- <el-row justify="space-evenly" v-show="isExpand"> -->
+        <div class='checkboxs-wrapper' v-show="isExpand">
         <el-checkbox
           class="checkbox"
           v-for="(item, index) in purchaseList"
@@ -14,7 +15,8 @@
         >
           {{ item.description }}
         </el-checkbox>
-      </el-row>
+        </div>
+      <!-- </el-row> -->
       </el-collapse-transition >
     <!-- </transition> -->
   </div>
@@ -76,8 +78,17 @@ export default defineComponent({
     el-row justify='space-evenly' 的效果并不好
     所以要手动设置margin
     */
-  margin-left: 10px;
+  /* margin-left: 10px; */
   margin-right: 0px;
+  flex: 0 0 33%;
+  box-sizing: border-box;
 }
 
+.checkboxs-wrapper {
+
+align-content: flex-start;
+display: flex;
+flex-flow: row wrap;
+
+}
 </style>

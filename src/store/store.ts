@@ -25,7 +25,7 @@ export const store = createStore<State>({
         if(item.name in state.checkeds == false){
             state.checkeds[item.name] = item;
         }else{
-            console.log("试图check已经checked的item ： " + item.name);
+            // console.log("试图check已经checked的item ： " + item.name);
         }
         
 
@@ -34,7 +34,7 @@ export const store = createStore<State>({
         if(item.name in state.checkeds == true){
             delete state.checkeds[item.name];
         }else{
-            console.log("试图uncheck已经unchecked的item ： " + item.name);
+            // console.log("试图uncheck已经unchecked的item ： " + item.name);
         }
     },
   },

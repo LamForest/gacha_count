@@ -2,7 +2,15 @@
   <div class="hello">
     <div>
       <!-- 活动复刻 -->
-      <purchase-selection :purchaseList="reviewActivityList" title="活动复刻" />
+      <purchase-selection :purchaseList="reviewActivityList" title="近期活动复刻" />
+    </div>
+      <div>
+      <!-- 主线 -->
+      <purchase-selection :purchaseList="mainList" title="主题曲、突袭和绝境作战" />
+    </div>
+    <div>
+      <!-- 活动复刻 -->
+      <purchase-selection :purchaseList="documentedSSList" title="已收录的别传、插曲" />
     </div>
     <div>
       <!-- 大月卡 & 月卡 -->
@@ -36,6 +44,8 @@ import {
   zuhebaoList,
   monthCardList,
   reviewActivityList,
+  documentedSSList,
+  mainList,
 } from "../utils/data";
 // import
 
@@ -56,6 +66,8 @@ export default defineComponent({
       zuhebaoPurchaseList,
       monthCardPurchaseList,
       reviewActivityList,
+      documentedSSList,
+      mainList,
     };
   },
 });

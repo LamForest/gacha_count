@@ -1,14 +1,17 @@
 import * as CONST from "../interface/const";
-import { PurchaseItem, ActivityItem, ActivityShopItem, RegularItem } from "../interface/types";
+import { PurchaseItem, ActivityItem, ActivityShopItem, RegularItem,MainSSItem } from "../interface/types";
 import { v4 as uuidv4 } from 'uuid';
 
 import dayjs from "dayjs";
 import { mapActions } from "vuex";
-const today_date = dayjs('2022-05-17T00:00:00.000+08:00');
-const deadline_date = dayjs('2022-08-17T00:00:00.000+08:00');
+// const today_date = dayjs('2022-05-17T00:00:00.000+08:00');
+export const today_date = dayjs().startOf('day')
+export const deadline_date = dayjs('2022-08-22T00:00:00.000+08:00');
 const days_diff = deadline_date.diff(today_date, 'day')
 
-
+/**
+ * 源石交易所
+ */
 export const shiList :Array<PurchaseItem> = [
     new PurchaseItem(6, CONST.SHI_6, "6元首充", {
       shi: 3
@@ -38,6 +41,9 @@ export const shiList :Array<PurchaseItem> = [
     // new PurchaseItem(648, 260, 0, 0, 0, "648元首充（￥648，260源石）", 'shi_648', ResObtainType.purchase),
   ];
 
+/**
+ * 组合包
+ */
 export const zuhebaoList: Array<PurchaseItem> = [
   new PurchaseItem(6, CONST.BAO_FRESHMAN, "新人组合包", {
     chou: 1,
@@ -55,7 +61,9 @@ export const zuhebaoList: Array<PurchaseItem> = [
     // new PurchaseItem(128, 0, 0, 0, 2, "新人寻访组合包（￥128)", 'bao_freshman_chou', ResObtainType.purchase),
     // new PurchaseItem(198, 24, 0, 0, 2, "夏日庆典礼包（￥198)", 'bao_summer', ResObtainType.purchase),
 ]
-
+/**
+ * 月卡 大月卡
+ */
 export const monthCardList: Array<PurchaseItem> = [
   new PurchaseItem(168, CONST.BIG_CARD_5, "每月寻访组合包 - 5月", {
     chou_10: 1,
@@ -76,7 +84,7 @@ export const monthCardList: Array<PurchaseItem> = [
 ]
 
 //小月卡
-{
+{  
   const months = days_diff / 30;
   const price = months * 30;
   const yu = days_diff * 200;
@@ -88,7 +96,7 @@ export const monthCardList: Array<PurchaseItem> = [
 }
 
 
-
+/**活动复刻 & 新活动 */
 export const reviewActivityList: Array<ActivityItem> = [
   new ActivityItem(CONST.ACTIVITY_FUCHAO, "覆潮之下活动复刻", {
     shi: 28,
@@ -114,6 +122,9 @@ export const newActivityList: Array<ActivityItem> = [
   // new ActivityItem( 27, 0, 0, 0, "莱塔尼亚新活动", 'activity_laiyin', ResObtainType.activity),
 ];
 
+/**
+ * 活动商店
+ */
 export const activityShopList: Array<ActivityItem> = [
   new ActivityShopItem(CONST.SHOP_ACTIVITY_LAITA, "莱塔尼亚活动", {
     chou: 3,
@@ -127,6 +138,9 @@ export const activityShopList: Array<ActivityItem> = [
   new ActivityShopItem(CONST.SHOP_ACTIVITY_DUOSUO, "多索雷斯假日复刻", {
     chou: 3,
   }),
+  new ActivityShopItem(uuidv4(), "2022年夏活", {
+    chou: 3,
+  }),
   // new ActivityShopItem( 0, 0, 3, 0, "莱茵生命新活动", 'shop_laita', ResObtainType.activity),
   // new ActivityShopItem( 0, 0, 3, 0, "莱塔尼亚新活动", 'shop_laiyin', ResObtainType.activity),
   // new ActivityShopItem( 0, 0, 3, 0, "覆潮之下复刻", 'shop_fuchao', ResObtainType.activity),
@@ -136,6 +150,7 @@ export const activityShopList: Array<ActivityItem> = [
 /**
  * 每日任务
  * 每周任务
+ * 剿灭行动
  */
 
 export const regularList : Array<RegularItem>= [
@@ -216,3 +231,154 @@ export const otherList: Array<RegularItem> = [
 
 }
 
+/**
+ * 主线 已收录的SS
+ */
+
+export const mainList : Array<MainSSItem> = [
+  new MainSSItem(`序章 黑暗时代·上`, {
+    shi: 11  + 7, //主线11关，战斗教学7关
+  }),
+  new MainSSItem(`序章 黑暗时代·上（突袭)`, {
+    shi: 11, //主线11关，战斗教学7关
+  }),
+  new MainSSItem(`第一章 黑暗时代·下`, {
+    shi: 10 * 2 + 2 + 3, //主线12关，战斗教学3关,有两关不能突袭
+  }),
+  new MainSSItem(`第一章 黑暗时代·下 (突袭)`, {
+    shi: 10 , //主线12关，战斗教学3关,有两关不能突袭
+  }),
+  new MainSSItem(`第二章 异卵同生`, {
+    shi: 10 + 4 + 12 , //主线10关，战斗教学4关，支线12关
+  }),
+  new MainSSItem(`第二章 异卵同生（突袭）`, {
+    shi: 10  , //主线10关，战斗教学4关，支线12关
+  }),
+
+  //主线8关，战斗教学1关，支线7关
+  new MainSSItem(`第三章 二次呼吸`, {
+    shi: 8  + 1 + 7 , 
+  }),
+  new MainSSItem(`第三章 二次呼吸（突袭）`, {
+    shi: 8  , 
+  }),
+
+
+    //主线10，战斗教学0关，支线10关
+    new MainSSItem(`第四章 急性衰竭`, {
+      shi: 10 + 0 + 10 , 
+    }),
+    new MainSSItem(`第四章 急性衰竭（突袭）`, {
+      shi: 10  , 
+    }),
+
+
+    //主线10，剧情1，战斗教学0关，支线9关，绝境作战4
+    new MainSSItem(`第五章 靶向药物`, {
+      shi: 10 + 1 + 9 , 
+    }),
+    new MainSSItem(`第五章 靶向药物（突袭、绝境作战）`, {
+      shi: 10 + 4 , 
+    }),
+    
+    //主线15，剧情3，战斗教学1关，支线4关，绝境作战4
+    new MainSSItem(`第六章 局部坏死`, {
+      shi: 15 + 3 + 1 + 4 , 
+    }),
+    new MainSSItem(`第六章 局部坏死（突袭、绝境作战）`, {
+      shi: 15 + 4 , 
+    }),
+
+    //主线16，剧情4，战斗教学1关，支线2关，绝境作战4
+    new MainSSItem(`第七章 苦难摇篮`, {
+      shi: 16 + 4 + 1 + 2 , 
+    }),
+    new MainSSItem(`第七章 苦难摇篮（突袭、绝境作战）`, {
+      shi: 16 + 4 , 
+    }),
+
+    //主线17（JT8-1没突袭），剧情6，隐藏剧情5，战斗教学1关，支线0关，绝境作战4
+    new MainSSItem(`第八章 怒号光明`, {
+      shi: 17 + 6 + 5 + 1  , 
+    }),
+    new MainSSItem(`第八章 怒号光明（突袭、绝境作战）`, {
+      shi: 16 + 4 , 
+    }),
+
+    //主线17，剧情4，战斗教学1关，支线1关，绝境作战6
+    new MainSSItem(`第九章 风暴瞭望`, {
+      shi: 17 + 4 + 1 + 1  , 
+    }),
+    new MainSSItem(`第九章 风暴瞭望（突袭、绝境作战）`, {
+      shi: 17 + 6 , 
+    }),   
+
+    //主线15，剧情4，战斗教学1关，支线0关，绝境作战3
+    new MainSSItem(`第十章 破碎日冕`, {
+      shi: 15 + 4 + 1  , 
+    }),
+    new MainSSItem(`第十章 破碎日冕（突袭、绝境作战）`, {
+      shi: 15 + 3 , 
+    }),   
+    
+
+]
+
+export const documentedSSList : Array<MainSSItem> = [
+  //骑兵与猎人
+  new MainSSItem(`骑兵与猎人`, {
+    shi: 6 + 6 * 2 , 
+  }), 
+
+  //火蓝之心
+  new MainSSItem(`火蓝之心`, {
+    shi: 14 + 4 + 6 * 2 , 
+  }), 
+
+  //喧闹法则
+  new MainSSItem(`喧闹法则`, {
+    shi: 13 + 8 * 2 , 
+  }), 
+
+  //沃伦母的
+  new MainSSItem(`沃伦姆德的薄暮`, {
+    shi: 15 + 8 * 2  + 1, //1为200杀小剿灭 
+  }), 
+
+  //密林悍将
+  new MainSSItem(`密林悍将归来`, {
+    shi: 12 + 8 * 2 , 
+  }), 
+
+  //玛丽亚林光
+  new MainSSItem(`玛莉娅·临光`, {
+    shi: 12 + 8 * 2 , 
+  }),   
+
+  //孤岛风云
+  new MainSSItem(`孤岛风云`, {
+    shi: 11 + 8 * 2 , 
+  }),   
+
+  //画中人
+  new MainSSItem(`画中人`, {
+    shi: 14 + 8 * 2 , 
+  }),   
+
+  //生于黑夜
+  new MainSSItem(`生于黑夜`, {
+    shi: 8 + 13 + 1 , 
+  }),   
+
+
+  //依晨漫步
+  new MainSSItem(`遗尘漫步`, {
+    shi: 11 + 8 * 2 , 
+  }),   
+
+
+  //覆潮之下
+  // new MainSSItem(`覆潮之下`, {
+  //   shi: 12 + 8 * 2 , 
+  // }),   
+]

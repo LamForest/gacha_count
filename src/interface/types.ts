@@ -1,5 +1,6 @@
 
 import * as CONST from "./const";
+import { v4 as uuidv4 } from 'uuid';
 
 const cal_cp_ratio = function(rmb: number, shi:number, yu:number, chou:number,shi_chou:number){
     const total_yu = shi * 180 + yu + chou * 600 + shi_chou * 6000;
@@ -91,7 +92,7 @@ class ActivityItem extends DetailedResources{
             if( name == CONST.ACTIVITY_LAITA || name == CONST.ACTIVITY_LAIYIN){
                 supplement = "（源石数量参考吾导先路)";
             }else if(name == CONST.ACTIVITY_SUMMER){
-                supplement = "(源石数量参考多索雷斯)";
+                supplement = "（源石数量参考多索雷斯)";
             }
             this.detail = `${description}关卡共计${this.shi}源石${supplement}`;
         }
@@ -104,7 +105,7 @@ class ActivityShopItem extends DetailedResources{
         param: ResourcesParam
         ){
             super(CONST.ResObtainType.activity , '', description,name, param)
-            this.detail = `${description} 商店可兑换 3 抽`
+            this.detail = `${description} 商店可兑换 3 寻访凭证`
         }
 }
 
@@ -121,6 +122,15 @@ class RegularItem extends DetailedResources{
     }
 }
 
+class MainSSItem extends DetailedResources{
+    constructor(
+        description: string,
+        param: ResourcesParam
+        ){
+            super(CONST.ResObtainType.mainSS, "", description,uuidv4(), param)
+            this.detail = `${description} ： ${formatResourcesString(param)}`;
+        }
+}
 type PurchaseList = PurchaseItem[]
 type ActivityList = ActivityItem[]
 
@@ -132,4 +142,4 @@ type ResDetail = {
 }
 
 export {PurchaseItem, PurchaseList, Resources, ResDetail, ActivityItem, ActivityShopItem,
-RegularItem}
+RegularItem, MainSSItem}
