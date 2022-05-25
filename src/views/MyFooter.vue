@@ -6,8 +6,8 @@
   <a href="https://busuanzi.ibruce.info/"> 不蒜子 </a>
   <a href='https://vercel.com/'> Vercel </a>
   <a href='https://dayjs.fenxianglu.cn/'> dayjs </a>
-  数据感谢<a href="https://prts.wiki/w/%E5%85%B3%E5%8D%A1%E4%B8%80%E8%A7%88">PRTS</a> <a href="https://ngabbs.com/read.php?tid=25586046&rand=8"> v_nig</a>
-  活动排期参考 <a href='https://www.bilibili.com/video/BV14541197gs'> 蜜饼工坊</a>
+  <br> 数据感谢<a href="https://prts.wiki/w/%E5%85%B3%E5%8D%A1%E4%B8%80%E8%A7%88">PRTS WIKI</a> <a href="https://ngabbs.com/read.php?tid=25586046&rand=8"> v_nig</a>
+        活动排期参考 <a href='https://www.bilibili.com/video/BV14541197gs'> 罗德岛蜜饼工坊</a>
   </h5>
   <h5>
 
