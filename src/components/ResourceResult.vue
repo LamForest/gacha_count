@@ -3,7 +3,7 @@
       
     <div id='result-wrapper'>
       <h4>
-        今天 {{today_date.format('YYYY-MM-DD')}} 至 夏活限定池结束（约为 {{deadline_date.format('YYYY-MM-DD')}}），大约可能或许能获得：
+        今天 {{today_date.format('YYYY-MM-DD')}} 至 夏活限定池结束（约为 {{deadline_date.format('YYYY-MM-DD')}}），大约或许至少能获得：
       </h4>
       <el-alert title="在山和泥岩即将进店的情况下，不同玩家获取及消耗黄票的差别较大，暂不纳入统计" :closable="false" type="warning" />
       <div class="result">
