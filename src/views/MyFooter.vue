@@ -2,12 +2,13 @@
 <el-row justify="space-evenly" >
 <div>
   
-  <h5>Powerd by <a href="https://vuejs.org/"> Vue </a> <a href="https://element-plus.org/"> ElementPlus </a>
+  <h5>Powerd by <a href="https://vuejs.org/"> Vue </a> <a href="https://element-plus.org/"> Element+ </a>
   <a href="https://busuanzi.ibruce.info/"> 不蒜子 </a>
   <a href='https://vercel.com/'> Vercel </a>
-  <a href='https://dayjs.fenxianglu.cn/'> dayjs </a>
-  <br> 数据感谢<a href="https://prts.wiki/w/%E5%85%B3%E5%8D%A1%E4%B8%80%E8%A7%88">PRTS WIKI</a> <a href="https://ngabbs.com/read.php?tid=25586046&rand=8"> v_nig</a>
-        活动排期参考 <a href='https://www.bilibili.com/video/BV14541197gs'> 罗德岛蜜饼工坊</a>
+  <!-- <a href='https://dayjs.fenxianglu.cn/'> dayjs </a> -->
+  <br> 数据感谢<a href="https://prts.wiki/w/%E5%85%B3%E5%8D%A1%E4%B8%80%E8%A7%88">PRTS</a> <a href="https://ngabbs.com/read.php?tid=25586046&rand=8"> v_nig</a>
+        活动排期参考 <a href='https://www.bilibili.com/video/BV14541197gs'> 蜜饼工坊</a>
+  <br> 最后更新时间：2022年05月26日
   </h5>
   <h5>
 
@@ -33,5 +34,6 @@ a {
 
 div{
   margin:auto;
+  text-align: center;
 }
 </style>

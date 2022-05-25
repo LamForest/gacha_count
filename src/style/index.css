@@ -1,8 +1,16 @@
 :root {
-    --main: #01131d;
-    /* --el-color-primary: var(--main) */
+    --main: #000102;
+    --el-color-primary: var(--main)
 }
 
 #my_busuanzi_container {
     color: var(--el-text-color-primary)
+}
+
+div .el-alert{
+    padding: 4px;
+}
+
+.is-checked{
+    font-weight: 600;
 }

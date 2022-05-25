@@ -1,6 +1,6 @@
 <template>
 <div>
-    <clickable-divider :isExpand="isExpand" title="计算过程" @click="isExpand = !isExpand"/>
+    <clickable-divider :isExpand="isExpand" title="详细说明" @click="isExpand = !isExpand"/>
     <el-collapse-transition>
     <div v-show="isExpand">
         <el-card class="box-card" shadow="hover" v-for="(value, key) in collapseList" :title="key"  :key='key'>

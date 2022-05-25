@@ -1,22 +1,36 @@
 <template>
   <div class="hello">
+    <!-- <el-icon><InfoFilled /></el-icon><p> </p> -->
+    <el-alert title="请在下方勾选尚未获得源石，并会在夏活前通关的关卡" :closable="false" type="info" />
     <div>
       <!-- 活动复刻 -->
-      <purchase-selection :purchaseList="reviewActivityList" title="近期活动复刻" />
+      <purchase-selection
+        :purchaseList="reviewActivityList"
+        title="近期活动复刻"
+        :defaultExpand="true"
+      />
     </div>
-      <div>
+    <div>
       <!-- 主线 -->
-      <purchase-selection :purchaseList="mainList" title="主题曲、突袭和绝境作战" />
+      <purchase-selection
+        :purchaseList="mainList"
+        title="主题曲、突袭和绝境作战"
+      />
     </div>
     <div>
       <!-- 活动复刻 -->
-      <purchase-selection :purchaseList="documentedSSList" title="已收录的别传、插曲" />
+      <purchase-selection
+        :purchaseList="documentedSSList"
+        title="已收录的别传、插曲"
+      />
     </div>
+    <el-alert title="请在下方勾选要购买的项目" :closable="false" type="info" />
     <div>
       <!-- 大月卡 & 月卡 -->
       <purchase-selection
         :purchaseList="monthCardPurchaseList"
         title="月卡 & 大月卡（每月寻访组合包）"
+        :defaultExpand="true"
       />
     </div>
 
