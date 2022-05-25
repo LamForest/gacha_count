@@ -5,6 +5,7 @@
       <h4>
         今天 {{today_date.format('YYYY-MM-DD')}} 至 夏活限定池结束（约为 {{deadline_date.format('YYYY-MM-DD')}}），大约可能或许能获得：
       </h4>
+      <el-alert title="在山和泥岩即将进店的情况下，不同玩家获取及消耗黄票的差别较大，暂不纳入统计" :closable="false" type="warning" />
       <div class="result">
         <el-avatar :src="yu_url"> </el-avatar>
         <span>{{ totalRes.yu }}合成玉</span>
@@ -28,7 +29,7 @@
          可以进行<span style="color:red">{{ chous }} </span>次干员寻访. 
          <span v-show="price != 0">需要充值<span style="color:red">{{ price }} </span>RMB. </span>
       </h4>
-
+    
     <!-- </el-row> -->
     </div>
   </div>

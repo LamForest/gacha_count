@@ -9,6 +9,7 @@
 
 div .el-alert{
     padding: 4px;
+    font-weight: 550;
 }
 
 .is-checked{

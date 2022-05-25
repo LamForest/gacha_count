@@ -210,6 +210,16 @@ export const otherList: Array<RegularItem> = [
   new RegularItem(uuidv4(), 'BUG修复、轮换池预载，活动更新（保守估计）', {
     yu: Math.round(days_diff / 6) * 200
   }),
+  //TODO
+  new RegularItem(uuidv4(), '6月17号签到', {
+    chou: 1
+  }),
+  new RegularItem(uuidv4(), '7月17号签到', {
+    chou: 1
+  }),
+  new RegularItem(uuidv4(), '8月17号签到', {
+    chou: 1
+  }),
 ]
 {
   //TODO 确认端午节没错
