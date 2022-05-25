@@ -76,7 +76,7 @@ class PurchaseItem extends DetailedResources{
         ){
             super(CONST.ResObtainType.purchase , "", description,name, param)
             this.cpratio = cal_cp_ratio(price, this.shi, this.yu, this.chou, this.chou_10);
-            const resString = 
+            // const resString = 
             this.detail = `${description}：${formatResourcesString(param)}抽卡性价比为${this.cpratio.toFixed(2)}元/抽;`
         }
 }
@@ -132,7 +132,7 @@ class MainSSItem extends DetailedResources{
         }
 }
 type PurchaseList = PurchaseItem[]
-type ActivityList = ActivityItem[]
+// type ActivityList = ActivityItem[]
 
 
 

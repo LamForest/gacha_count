@@ -3,7 +3,7 @@ import { PurchaseItem, ActivityItem, ActivityShopItem, RegularItem,MainSSItem } 
 import { v4 as uuidv4 } from 'uuid';
 
 import dayjs from "dayjs";
-import { mapActions } from "vuex";
+// import { mapActions } from "vuex";
 // const today_date = dayjs('2022-05-17T00:00:00.000+08:00');
 export const today_date = dayjs().startOf('day')
 export const deadline_date = dayjs('2022-08-22T00:00:00.000+08:00');

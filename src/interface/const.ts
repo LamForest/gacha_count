@@ -18,7 +18,6 @@
 //     | TYPE_CHECKIN
 //     | TYP
 
-import { ActivityItem } from "./types"
 
 // type a = TYPE_PURCHASE;
 export const ResObtainType:Record<string, string> = {
