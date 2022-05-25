@@ -7,20 +7,20 @@
       </h4>
       <div class="result">
         <el-avatar :src="yu_url"> </el-avatar>
-        <span>{{ totalRes.yu }}合成玉，</span>
+        <span>{{ totalRes.yu }}合成玉</span>
         <!-- </el-row> -->
       </div>
       <div class="result">
         <el-avatar :src="shi_url"> </el-avatar>
-        <span>{{ totalRes.shi }}源石，</span>
+        <span>{{ totalRes.shi }}源石</span>
       </div>
       <div class="result">
         <el-avatar :src="chou_url"> </el-avatar
-        ><span>{{ totalRes.chou }}寻访凭证，</span>
+        ><span>{{ totalRes.chou }}寻访凭证</span>
       </div>
       <div class="result">
         <el-avatar :src="chou_10_url"> </el-avatar>
-        <span>{{ totalRes.chou_10 }}十连寻访凭证;</span>
+        <span>{{ totalRes.chou_10 }}十连寻访凭证</span>
       </div>
     
     <!-- <el-row align="middle" justify="space-evenly"> -->
