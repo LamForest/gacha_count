@@ -84,6 +84,7 @@ export default defineComponent({
   justify-content: space-evenly;
   margin-top: -10px;
   margin-bottom: 10px;
+  font-size: 15px;
   /* align-items: center; */
 }
 .text {

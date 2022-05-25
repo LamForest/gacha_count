@@ -1,6 +1,7 @@
 import { InjectionKey } from 'vue'
 import { createStore, useStore as baseUseStore, Store } from 'vuex'
 import { PurchaseItem, ResDetail, Resources } from '@/interface/types'
+import { ResObtainType } from '@/interface/const'
 
 // export interface State {
 // //   yu: number;
@@ -40,6 +41,15 @@ export const store = createStore<State>({
   },
 
   getters:{
+      totalPrice(state): number{
+        let price = 0;
+        for(const k in state.checkeds){
+          if('price' in state.checkeds[k] && state.checkeds[k].type == ResObtainType.purchase ){
+            price += state.checkeds[k].price;
+          }
+        }
+        return price;
+      },
       totalResources(state): Resources{
         const totalRes:Resources = {
             yu: 0,

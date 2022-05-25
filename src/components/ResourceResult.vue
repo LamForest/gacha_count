@@ -3,7 +3,7 @@
       
     <div id='result-wrapper'>
       <h4>
-        今天 {{today_date.format('YYYY-MM-DD')}} 至 夏活限定池结束（估计为 {{deadline_date.format('YYYY-MM-DD')}}），至少能获得：
+        今天 {{today_date.format('YYYY-MM-DD')}} 至 夏活限定池结束（约为 {{deadline_date.format('YYYY-MM-DD')}}），大约可能或许能获得：
       </h4>
       <div class="result">
         <el-avatar :src="yu_url"> </el-avatar>
@@ -24,9 +24,11 @@
       </div>
     
     <!-- <el-row align="middle" justify="space-evenly"> -->
-      <h4 class="result">
-         可以进行<font color="red">{{ chous }} </font>次干员寻访.
+      <h4 >
+         可以进行<span style="color:red">{{ chous }} </span>次干员寻访. 
+         <span v-show="price != 0">需要充值<span style="color:red">{{ price }} </span>RMB. </span>
       </h4>
+
     <!-- </el-row> -->
     </div>
   </div>
@@ -62,6 +64,8 @@ export default defineComponent({
       return totalRes;
     });
 
+    const price = computed<number>(() => store.getters["totalPrice"]);
+
     return {
       chous,
       totalRes,
@@ -71,6 +75,7 @@ export default defineComponent({
       shi_url,
       today_date,
       deadline_date,
+      price,
     };
   },
 });
@@ -94,7 +99,7 @@ export default defineComponent({
   align-items: center;
 }
 
-span {
+.result span {
   margin-left: 10px;
 
 }

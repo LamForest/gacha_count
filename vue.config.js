@@ -16,5 +16,15 @@ module.exports = {
       // new BundleAnalyzerPlugin(),
 
     ],
-    }
+    },
+
+    //to change title
+    chainWebpack: config => {
+      config
+          .plugin('html')
+          .tap(args => {
+              args[0].title = "夏活攒抽规划";
+              return args;
+          })
+  }
 }

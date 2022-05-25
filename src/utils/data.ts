@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 // import { mapActions } from "vuex";
 // const today_date = dayjs('2022-05-17T00:00:00.000+08:00');
 export const today_date = dayjs().startOf('day')
+
 export const deadline_date = dayjs('2022-08-22T00:00:00.000+08:00');
 const days_diff = deadline_date.diff(today_date, 'day')
 
@@ -89,7 +90,7 @@ export const monthCardList: Array<PurchaseItem> = [
   const price = months * 30;
   const yu = days_diff * 200;
   const shi = Math.floor(months) * 6; //保守一点，用floor
-  const monthlyCarditem = new PurchaseItem(price, CONST.MONTHLY_CARD, `月卡`, {
+  const monthlyCarditem = new PurchaseItem(price, CONST.MONTHLY_CARD, `月卡（1元/天）`, {
     yu, shi,
   });
   monthCardList.unshift(monthlyCarditem);
@@ -207,7 +208,7 @@ export const otherList: Array<RegularItem> = [
     yu: 600, chou: 2
   }),
   new RegularItem(uuidv4(), 'BUG修复、轮换池预载，活动更新（保守估计）', {
-    yu: Math.round(days_diff / 5) * 200
+    yu: Math.round(days_diff / 6) * 200
   }),
 ]
 {
