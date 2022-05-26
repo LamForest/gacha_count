@@ -110,7 +110,7 @@ export const reviewActivityList: Array<ActivityItem> = [
 ]
 
 export const newActivityList: Array<ActivityItem> = [
-  new ActivityItem(CONST.ACTIVITY_LAITA, "莱塔尼亚新活动", {
+  new ActivityItem(CONST.ACTIVITY_LAITA, "新SideStory尘影余音", {
     shi: 27,
   }),
   new ActivityItem(CONST.ACTIVITY_LAIYIN, "莱茵生命新活动", {
@@ -127,7 +127,7 @@ export const newActivityList: Array<ActivityItem> = [
  * 活动商店
  */
 export const activityShopList: Array<ActivityItem> = [
-  new ActivityShopItem(CONST.SHOP_ACTIVITY_LAITA, "莱塔尼亚活动", {
+  new ActivityShopItem(CONST.SHOP_ACTIVITY_LAITA, "新SideStory尘影余音", {
     chou: 3,
   }),
   new ActivityShopItem(CONST.SHOP_ACTIVITY_LAIYIN, "莱茵生命活动", {
