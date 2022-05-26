@@ -14,7 +14,7 @@ const formatResourcesString = (param: ResourcesParam) => {
         detail += `${param.yu} 合成玉；`
     }
     if(param.shi){
-        detail += `${param.shi} 源石；`
+        detail += `${param.shi.toFixed(2)} 源石；`
     }
     if(param.chou){
         detail += `${param.chou} 寻访凭证；`

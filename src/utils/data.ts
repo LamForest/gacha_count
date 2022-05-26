@@ -89,7 +89,7 @@ export const monthCardList: Array<PurchaseItem> = [
   const months = days_diff / 30;
   const price = months * 30;
   const yu = days_diff * 200;
-  const shi = Math.floor(months) * 6; //保守一点，用floor
+  const shi = (months * 6); //保守一点，用floor
   const monthlyCarditem = new PurchaseItem(price, CONST.MONTHLY_CARD, `月卡（1元/天）`, {
     yu, shi,
   });
@@ -139,7 +139,7 @@ export const activityShopList: Array<ActivityItem> = [
   new ActivityShopItem(CONST.SHOP_ACTIVITY_DUOSUO, "多索雷斯假日复刻", {
     chou: 3,
   }),
-  new ActivityShopItem(uuidv4(), "2022年夏活", {
+  new ActivityShopItem(uuidv4(), "2022年夏季活动", {
     chou: 3,
   }),
   // new ActivityShopItem( 0, 0, 3, 0, "莱茵生命新活动", 'shop_laita', ResObtainType.activity),
@@ -288,7 +288,7 @@ export const mainList : Array<MainSSItem> = [
     new MainSSItem(`第五章 靶向药物`, {
       shi: 10 + 1 + 9 , 
     }),
-    new MainSSItem(`第五章 靶向药物（突袭、绝境作战）`, {
+    new MainSSItem(`第五章 靶向药物（突袭、绝境）`, {
       shi: 10 + 4 , 
     }),
     
@@ -296,7 +296,7 @@ export const mainList : Array<MainSSItem> = [
     new MainSSItem(`第六章 局部坏死`, {
       shi: 15 + 3 + 1 + 4 , 
     }),
-    new MainSSItem(`第六章 局部坏死（突袭、绝境作战）`, {
+    new MainSSItem(`第六章 局部坏死（突袭、绝境）`, {
       shi: 15 + 4 , 
     }),
 
@@ -304,7 +304,7 @@ export const mainList : Array<MainSSItem> = [
     new MainSSItem(`第七章 苦难摇篮`, {
       shi: 16 + 4 + 1 + 2 , 
     }),
-    new MainSSItem(`第七章 苦难摇篮（突袭、绝境作战）`, {
+    new MainSSItem(`第七章 苦难摇篮（突袭、绝境）`, {
       shi: 16 + 4 , 
     }),
 
@@ -312,7 +312,7 @@ export const mainList : Array<MainSSItem> = [
     new MainSSItem(`第八章 怒号光明`, {
       shi: 17 + 6 + 5 + 1  , 
     }),
-    new MainSSItem(`第八章 怒号光明（突袭、绝境作战）`, {
+    new MainSSItem(`第八章 怒号光明（突袭、绝境）`, {
       shi: 16 + 4 , 
     }),
 
@@ -320,7 +320,7 @@ export const mainList : Array<MainSSItem> = [
     new MainSSItem(`第九章 风暴瞭望`, {
       shi: 17 + 4 + 1 + 1  , 
     }),
-    new MainSSItem(`第九章 风暴瞭望（突袭、绝境作战）`, {
+    new MainSSItem(`第九章 风暴瞭望（突袭、绝境）`, {
       shi: 17 + 6 , 
     }),   
 
@@ -328,7 +328,7 @@ export const mainList : Array<MainSSItem> = [
     new MainSSItem(`第十章 破碎日冕`, {
       shi: 15 + 4 + 1  , 
     }),
-    new MainSSItem(`第十章 破碎日冕（突袭、绝境作战）`, {
+    new MainSSItem(`第十章 破碎日冕（突袭、绝境）`, {
       shi: 15 + 3 , 
     }),   
     

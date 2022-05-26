@@ -4,7 +4,7 @@
       
       <el-tag class="ml-2" type="info" size='large' >
       <span id="my_busuanzi_container" >
-        总计查询次数：
+        累计访问人数：
         <span id="busuanzi_value_site_pv"></span>
       </span>
       </el-tag>

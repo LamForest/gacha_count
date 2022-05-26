@@ -78,9 +78,9 @@ export default defineComponent({
     el-row justify='space-evenly' 的效果并不好
     所以要手动设置margin
     */
-  /* margin-left: 10px; */
+  margin-left: 10px;
   margin-right: 0px;
-  flex: 0 0 33%;
+  flex: 0 0 30%;
   box-sizing: border-box;
 }
 

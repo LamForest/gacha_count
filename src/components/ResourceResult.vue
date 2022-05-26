@@ -1,11 +1,12 @@
 <template>
   <div id="result">
       
+    <!-- <el-alert title=""/> -->
     <div id='result-wrapper'>
       <h4>
         今天 {{today_date.format('YYYY-MM-DD')}} 至 夏活限定池结束（约为 {{deadline_date.format('YYYY-MM-DD')}}），大约或许至少能获得：
       </h4>
-      <el-alert title="在山和泥岩即将进店的情况下，不同玩家获取及消耗黄票的差别较大，暂不纳入统计" :closable="false" type="warning" />
+      <el-alert title="在山和泥岩即将进店的情况下，不同玩家获取及消耗黄票的差别较大，暂不将黄票纳入统计" :closable="false" type="warning" />
       <div class="result">
         <el-avatar :src="yu_url"> </el-avatar>
         <span>{{ totalRes.yu }}合成玉</span>

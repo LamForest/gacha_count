@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <!-- <el-icon><InfoFilled /></el-icon><p> </p> -->
-    <el-alert title="请在下方勾选尚未获得源石，并会在夏活前通关的关卡" :closable="false" type="info" />
+    <el-alert title="请在下方勾选尚未获得源石，并会在夏活前通关的关卡" :closable="false" type="success" />
     <div>
       <!-- 活动复刻 -->
       <purchase-selection
@@ -24,7 +24,7 @@
         title="已收录的别传、插曲"
       />
     </div>
-    <el-alert title="请在下方勾选要购买的项目" :closable="false" type="info" />
+    <el-alert title="请在下方勾选要购买的项目" :closable="false" type="success" />
     <div>
       <!-- 大月卡 & 月卡 -->
       <purchase-selection

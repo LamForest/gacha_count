@@ -1,6 +1,7 @@
 <template>
 <div>
-    <clickable-divider :isExpand="isExpand" title="详细说明" @click="isExpand = !isExpand"/>
+    <el-alert title="下面的数据为基于近期活动的估算，仅供参考" :closable="false"  type='warning'>  </el-alert>
+    <clickable-divider :isExpand="isExpand" title="补充信息" @click="isExpand = !isExpand"/>
     <el-collapse-transition>
     <div v-show="isExpand">
         <el-card class="box-card" shadow="hover" v-for="(value, key) in collapseList" :title="key"  :key='key'>
