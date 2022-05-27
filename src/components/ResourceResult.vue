@@ -1,4 +1,5 @@
 <template>
+  
   <div id="result">
     <!-- <el-alert title=""/> -->
     <div id="result-wrapper">
@@ -42,7 +43,7 @@
 
       <!-- <el-row align="middle" justify="space-evenly"> -->
       <h4>
-        可以进行<span style="color: red">{{ chous }} </span>次干员寻访.
+        可以进行<span style="color: red" ref='animatedNumberRef'> </span>次干员寻访.
         <span v-show="price != 0"
           >需要充值<span style="color: red">{{ price }} </span>RMB.
         </span>
@@ -55,9 +56,11 @@
 
 <script lang="ts">
 import { ResDetail, Resources } from "@/interface/types";
-import { computed, defineComponent, ref, provide } from "@vue/runtime-core";
+import { computed, defineComponent, ref, provide, onMounted } from "@vue/runtime-core";
+import { watch } from "vue";
 import { useStore } from "../store/store";
 import { today_date, deadline_date } from "../utils/data";
+import gsap from 'gsap'
 
 // import
 
@@ -75,10 +78,28 @@ export default defineComponent({
     const chou_url =
       "https://pic1.zhimg.com/80/v2-ccd55a21c8e00d7cbdb6d13ddf25cd21_720w.jpg?source=1940ef5c";
 
+    const animatedNumberRef =  ref(null);
+    let animatedNumber: gsap.TweenTarget = null;
+    onMounted(() =>{
+      animatedNumber = animatedNumberRef.value;
+    })
     const chous = computed<number>(() => {
-      console.log("计算属性: chous")
+      // console.log("计算属性: chous")
       return store.getters["totalChou"](isSpendShi.value).toFixed(2)
       });
+    //这样做并不是响应时的，一定要用计算属性
+    // const chous = ref<number>(store.getters["totalChou"](isSpendShi.value));
+    // const tweenedNumber = ref<number>(0);
+    // const animatedNumber = computed<string>(() =>{
+    //   return tweenedNumber.value.toFixed(2);
+    // })
+
+    watch(chous, (newVal, oldVal)=>{
+      gsap.to(animatedNumber, {duration:1, innerHTML: newVal, snap:{
+        innerHTML: 0.01,
+      }})
+    })
+
     // const resource = computed(() => store.getters['totalResource']); //可获取的总资源
     // const aaa = ref(false)
     const totalRes = computed<Resources>(() => {
@@ -100,8 +121,16 @@ export default defineComponent({
       deadline_date,
       price,
       isSpendShi,
+      // tweenedNumber,
+      animatedNumberRef,
+      
     };
   },
+  // watch:{
+  //   chous(newValue, oldValue){
+  //     gsap.to(this.$refs.chou, { duration: 0.5, tweenedNumber: newValue })
+  //   }
+  // }
 });
 </script>
 
