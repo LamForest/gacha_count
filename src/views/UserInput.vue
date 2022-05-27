@@ -3,7 +3,7 @@
     <!-- <el-icon><InfoFilled /></el-icon><p> </p> -->
       <purchase-selection
         :purchaseList="[]"
-        title="账号中已有的资源，可用键盘输入"
+        title="账号中已有的资源，输入后需要点击其他区域"
         :purchaseAmountList="ownedResources"
       />
     <el-alert
