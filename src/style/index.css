@@ -9,6 +9,7 @@
 
 div .el-alert{
     padding: 4px;
+    margin-top: 20px;
     font-weight: 550;
 }
 
@@ -25,12 +26,14 @@ div .el-alert{
     margin-left: 0;
     padding-left: 0;
     padding-right: 0;
-    padding-top: 0;
+    /* margin-top: 10px; */
+    padding-top: 10px;
+    padding-bottom: 0;
 }
 
 .el-divider{
     /* padding-top: 20px; */
     /* padding-bottom: 20px; */
-    /* margin-top: 10px;
-    margin-bottom:18px; */
+    margin-top: 0px;
+    margin-bottom:3px;
 }

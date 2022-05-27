@@ -1,9 +1,12 @@
 <template>
-    <el-divider content-position="center" >
-      <el-button type="" text>
+    <div>
+    <el-button type="" text>
         {{ title + (isExpand ? "（点击收起）" : "（点击展开）") }}
-      </el-button>
+    </el-button>
+    <el-divider content-position="center" >
+
     </el-divider>
+    </div>
 </template>
 
 <script lang="ts">
@@ -29,5 +32,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
+div{
+    overflow:hidden;
+    /* display: inline-block; */
+    /* border: 1px; */
+    /* border-color: transparent; */
+}
+
 
 </style>
