@@ -1,12 +1,18 @@
 <template>
   <div id="result">
-      
     <!-- <el-alert title=""/> -->
-    <div id='result-wrapper'>
+    <div id="result-wrapper">
       <h4>
-        今天 {{today_date.format('YYYY-MM-DD')}} 至 夏活限定池结束（约为 {{deadline_date.format('YYYY-MM-DD')}}），大约或许至少能获得：
+        今天 {{ today_date.format("YYYY-MM-DD") }} 至 夏活限定池结束（约为
+        {{ deadline_date.format("YYYY-MM-DD") }}），大约或许至少能获得：
       </h4>
-      <el-alert title="在山和泥岩即将进店的情况下，不同玩家获取及消耗黄票的差别较大，暂不将黄票纳入统计" :closable="false" type="warning" />
+      <!-- title="在山和泥岩即将进店的情况下，不同玩家获取及消耗黄票的差别较大，暂不将黄票纳入统计" -->
+      <el-alert
+        title="黄票的获取和消耗数量因人而异且较为复杂，故统计资源时暂不考虑黄票；但若你有足够的黄票，可以查看下方的黄票换抽"
+
+        :closable="false"
+        type="warning"
+      />
       <div class="result">
         <el-avatar :src="yu_url"> </el-avatar>
         <span>{{ totalRes.yu }}合成玉</span>
@@ -14,7 +20,16 @@
       </div>
       <div class="result">
         <el-avatar :src="shi_url"> </el-avatar>
+        
         <span>{{ totalRes.shi }}源石</span>
+        <div>
+        <el-switch
+          v-model="isSpendShi"
+          active-color="#13ce66"
+        />
+        <el-tag class="ml-2" type="info" v-show='isSpendShi == false'>不使用源石抽卡</el-tag>
+        <el-tag class="ml-2" type="success" v-show='isSpendShi == true'>使用源石抽卡</el-tag>
+        </div>
       </div>
       <div class="result">
         <el-avatar :src="chou_url"> </el-avatar
@@ -24,14 +39,16 @@
         <el-avatar :src="chou_10_url"> </el-avatar>
         <span>{{ totalRes.chou_10 }}十连寻访凭证</span>
       </div>
-    
-    <!-- <el-row align="middle" justify="space-evenly"> -->
-      <h4 >
-         可以进行<span style="color:red">{{ chous }} </span>次干员寻访. 
-         <span v-show="price != 0">需要充值<span style="color:red">{{ price }} </span>RMB. </span>
+
+      <!-- <el-row align="middle" justify="space-evenly"> -->
+      <h4>
+        可以进行<span style="color: red">{{ chous }} </span>次干员寻访.
+        <span v-show="price != 0"
+          >需要充值<span style="color: red">{{ price }} </span>RMB.
+        </span>
       </h4>
-    
-    <!-- </el-row> -->
+
+      <!-- </el-row> -->
     </div>
   </div>
 </template>
@@ -40,7 +57,7 @@
 import { ResDetail, Resources } from "@/interface/types";
 import { computed, defineComponent, ref, provide } from "@vue/runtime-core";
 import { useStore } from "../store/store";
-import { today_date, deadline_date} from "../utils/data"
+import { today_date, deadline_date } from "../utils/data";
 
 // import
 
@@ -48,6 +65,7 @@ export default defineComponent({
   components: {},
   setup() {
     const store = useStore();
+    const isSpendShi = ref<boolean>(true);
     const chou_10_url =
       "https://pic1.zhimg.com/80/v2-1dcd0415ee2d93b5fc7aced86b0cd26e_720w.jpg?source=1940ef5c";
     const yu_url =
@@ -57,7 +75,10 @@ export default defineComponent({
     const chou_url =
       "https://pic1.zhimg.com/80/v2-ccd55a21c8e00d7cbdb6d13ddf25cd21_720w.jpg?source=1940ef5c";
 
-    const chous = computed<number>(() => store.getters["totalChou"].toFixed(2));
+    const chous = computed<number>(() => {
+      console.log("计算属性: chous")
+      return store.getters["totalChou"](isSpendShi.value).toFixed(2)
+      });
     // const resource = computed(() => store.getters['totalResource']); //可获取的总资源
     // const aaa = ref(false)
     const totalRes = computed<Resources>(() => {
@@ -67,7 +88,7 @@ export default defineComponent({
     });
 
     const price = computed<number>(() => store.getters["totalPrice"]);
-
+    
     return {
       chous,
       totalRes,
@@ -78,6 +99,7 @@ export default defineComponent({
       today_date,
       deadline_date,
       price,
+      isSpendShi,
     };
   },
 });
@@ -87,14 +109,13 @@ export default defineComponent({
 <style scoped>
 .result {
   text-align: center;
-  width: 230px;
+  width: 300px;
   /* flex: 0 0 100%; */
   align-items: center;
   display: flex;
-
 }
 
-#result-wrapper{
+#result-wrapper {
   flex-flow: column;
   display: flex;
   flex-wrap: wrap;
@@ -103,13 +124,9 @@ export default defineComponent({
 
 .result span {
   margin-left: 10px;
-
 }
 
 h4 {
   text-align: center;
-  
 }
-
-
 </style>

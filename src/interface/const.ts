@@ -23,7 +23,7 @@
 export const ResObtainType:Record<string, string> = {
     regular : "日常、签到、剿灭行动、闪断更新、绿票商店等", //日常
     // checkin : "签到",
-    purchase : "月卡、大月卡、组合包、源石交易所",
+    purchase : "账号中已有的资源、购买的资源、黄票换抽",
     activity : '近期SideStory',
     // update : '更新',
     mainSS : '主线、已收录的别传插曲', //TODO

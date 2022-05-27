@@ -1,13 +1,22 @@
 <template>
   <div class="hello">
     <!-- <el-icon><InfoFilled /></el-icon><p> </p> -->
-    <el-alert title="请在下方勾选尚未获得源石，并会在夏活前通关的关卡" :closable="false" type="success" />
+      <purchase-selection
+        :purchaseList="[]"
+        title="账号中已有的资源，可用键盘输入"
+        :purchaseAmountList="ownedResources"
+      />
+    <el-alert
+      title="请在下方勾选尚未获得源石，并会在夏活前通关的关卡"
+      :closable="false"
+      type="success"
+    />
     <div>
       <!-- 活动复刻 -->
       <purchase-selection
         :purchaseList="reviewActivityList"
         title="近期活动复刻"
-        :defaultExpand="true"
+        :defaultExpand="false"
       />
     </div>
     <div>
@@ -24,20 +33,46 @@
         title="已收录的别传、插曲"
       />
     </div>
-    <el-alert title="请在下方勾选要购买的项目" :closable="false" type="success" />
+    <el-alert
+      title="勾选黄票兑换前请确认是否有足够的黄票"
+      :closable="false"
+      type="warning"
+    />
+    <purchase-selection
+        :purchaseList="huangPiaoList"
+        title="是否用258黄票兑换38抽"
+        :defaultExpand="false"
+      />
+
+    <el-alert
+      title="请在下方勾选要购买的项目，[ ]内为性价比，即每抽所需的RMB"
+      :closable="false"
+      type="success"
+    />
     <div>
       <!-- 大月卡 & 月卡 -->
       <purchase-selection
         :purchaseList="monthCardPurchaseList"
-        title="月卡 & 大月卡（每月寻访组合包）"
-        :defaultExpand="true"
+        title="月卡、大月卡（每月寻访组合包）"
+        :defaultExpand="false"
       />
     </div>
 
     <!-- <el-checkbox v-model="aaa" label="jjj"> 123</el-checkbox> -->
     <div>
       <!-- 源石交易所 -->
-      <purchase-selection :purchaseList="shiPurchaseList" title="源石交易所" />
+      <purchase-selection
+        :purchaseList="shiPurchaseList"
+        title="源石交易所（首充）"
+      />
+    </div>
+    <div>
+      <!-- 源石交易所 -->
+      <purchase-selection
+      :purchaseList='[]'
+        title="源石交易所（非首充）"
+        :purchaseAmountList="shiNotFirstList"
+      />
     </div>
     <div>
       <!-- 礼包 -->
@@ -60,6 +95,9 @@ import {
   reviewActivityList,
   documentedSSList,
   mainList,
+  shiNotFirstList,
+  ownedResources,
+  huangPiaoList,
 } from "../utils/data";
 // import
 
@@ -71,6 +109,7 @@ export default defineComponent({
     // const store = useStore();
     // provide('store', store)
 
+    //TODO 不需要变为响应式变量
     const shiPurchaseList = ref<PurchaseList>(shiList);
     const zuhebaoPurchaseList = ref<PurchaseList>(zuhebaoList);
     const monthCardPurchaseList = ref<PurchaseList>(monthCardList);
@@ -82,6 +121,9 @@ export default defineComponent({
       reviewActivityList,
       documentedSSList,
       mainList,
+      shiNotFirstList,
+      ownedResources,
+      huangPiaoList,
     };
   },
 });

@@ -1,5 +1,5 @@
 import * as CONST from "../interface/const";
-import { PurchaseItem, ActivityItem, ActivityShopItem, RegularItem,MainSSItem } from "../interface/types";
+import { PurchaseItem, ActivityItem, ActivityShopItem, RegularItem,MainSSItem, PurchaseAmountItem } from "../interface/types";
 import { v4 as uuidv4 } from 'uuid';
 
 import dayjs from "dayjs";
@@ -10,6 +10,19 @@ export const today_date = dayjs().startOf('day')
 export const deadline_date = dayjs('2022-08-22T00:00:00.000+08:00');
 const days_diff = deadline_date.diff(today_date, 'day')
 
+/**
+ * 用户已有资源
+ */
+
+ export const ownedResources :Array<PurchaseAmountItem> = [
+  new PurchaseAmountItem(0, uuidv4() , "账号中的源石", {
+    shi: 1
+  }),
+  new PurchaseAmountItem(0, uuidv4() , "账号中的合成玉", {
+    yu: 1
+  }),
+
+]
 /**
  * 源石交易所
  */
@@ -31,6 +44,37 @@ export const shiList :Array<PurchaseItem> = [
     }),
     new PurchaseItem(648, CONST.SHI_648, "648元首充", {
       shi: 260
+    }),
+
+    // new PurchaseItem(6, 3, 0, 0, 0, "6元首充（￥6，3源石)", 'shi_6', ResObtainType.purchase),
+
+    // new PurchaseItem(30, 12, 0, 0, 0, "30元首充（￥30，12源石）", 'shi_30', ResObtainType.purchase),
+    // new PurchaseItem(98, 40, 0, 0, 0, "98元首充（￥98，40源石）", 'shi_98', ResObtainType.purchase),
+    // new PurchaseItem(198, 80, 0, 0, 0, "198元首充（￥98，80源石）", 'shi_198', ResObtainType.purchase),
+    // new PurchaseItem(328, 132, 0, 0, 0, "328元首充（￥328，132源石）", 'shi_328', ResObtainType.purchase),
+    // new PurchaseItem(648, 260, 0, 0, 0, "648元首充（￥648，260源石）", 'shi_648', ResObtainType.purchase),
+  ];
+/**
+ * 源石交易所非首充
+ */
+export const shiNotFirstList :Array<PurchaseAmountItem> = [
+    new PurchaseAmountItem(6, uuidv4() , "006元源石", {
+      shi: 1
+    }),
+    new PurchaseAmountItem(30, uuidv4() , "030元源石", {
+      shi: 6
+    }),
+    new PurchaseAmountItem(98, uuidv4() , "098元源石", {
+      shi: 20
+    }),
+    new PurchaseAmountItem(198, uuidv4() , "198元源石", {
+      shi: 40
+    }),
+    new PurchaseAmountItem(328, uuidv4() , "328元源石", {
+      shi: 66
+    }),
+    new PurchaseAmountItem(648, uuidv4() , "648元源石", {
+      shi: 130,
     }),
 
     // new PurchaseItem(6, 3, 0, 0, 0, "6元首充（￥6，3源石)", 'shi_6', ResObtainType.purchase),
@@ -66,23 +110,33 @@ export const zuhebaoList: Array<PurchaseItem> = [
  * 月卡 大月卡
  */
 export const monthCardList: Array<PurchaseItem> = [
-  new PurchaseItem(168, CONST.BIG_CARD_5, "每月寻访组合包 - 5月", {
-    chou_10: 1,
-    shi: 42,
-  }),
-  new PurchaseItem(168, CONST.BIG_CARD_6, "每月寻访组合包 - 6月", {
-    chou_10: 1,
-    shi: 42,
-  }),
-  new PurchaseItem(168, CONST.BIG_CARD_7, "每月寻访组合包 - 7月", {
-    chou_10: 1,
-    shi: 42,
-  }),
+  // new PurchaseItem(168, CONST.BIG_CARD_5, "每月寻访组合包 - 5月", {
+  //   chou_10: 1,
+  //   shi: 42,
+  // }),
+  // new PurchaseItem(168, CONST.BIG_CARD_6, "每月寻访组合包 - 6月", {
+  //   chou_10: 1,
+  //   shi: 42,
+  // }),
+  // new PurchaseItem(168, CONST.BIG_CARD_7, "每月寻访组合包 - 7月", {
+  //   chou_10: 1,
+  //   shi: 42,
+  // }),
   
   // new PurchaseItem(168, 42, 0, 0, 1, "每月寻访组合包 - 5月（￥168)", CONST.BIG_CARD_5, ResObtainType.purchase),
   // new PurchaseItem(168, 42, 0, 0, 1, "每月寻访组合包 - 6月（￥168)", CONST.BIG_CARD_6, ResObtainType.purchase),
   // new PurchaseItem(168, 42, 0, 0, 1, "每月寻访组合包 - 7月（￥168)", CONST.BIG_CARD_7, ResObtainType.purchase),
 ]
+{
+  const today_month = today_date.month();
+  const deadline_month = deadline_date.month();
+  for(let i = today_month; i <= deadline_month; i++){
+    monthCardList.push(new PurchaseItem(168, uuidv4(), `${i+1}月寻访组合包`, {
+      chou_10: 1,
+      shi: 42,
+    }));
+  }
+}
 
 //小月卡
 {  
@@ -90,7 +144,7 @@ export const monthCardList: Array<PurchaseItem> = [
   const price = months * 30;
   const yu = days_diff * 200;
   const shi = (months * 6); //保守一点，用floor
-  const monthlyCarditem = new PurchaseItem(price, CONST.MONTHLY_CARD, `月卡（1元/天）`, {
+  const monthlyCarditem = new PurchaseItem(price, CONST.MONTHLY_CARD, `月卡 1元/天`, {
     yu, shi,
   });
   monthCardList.unshift(monthlyCarditem);
@@ -116,7 +170,7 @@ export const newActivityList: Array<ActivityItem> = [
   new ActivityItem(CONST.ACTIVITY_LAIYIN, "莱茵生命新活动", {
     shi: 27,
   }),
-  new ActivityItem(CONST.ACTIVITY_SUMMER, "2022夏季活动", {
+  new ActivityItem(CONST.ACTIVITY_SUMMER, "2022杜林夏季活动", {
     shi: 40,
   }),
   // new ActivityItem( 27, 0, 0, 0, "莱茵生命新活动", 'activity_laita', ResObtainType.activity),
@@ -139,7 +193,7 @@ export const activityShopList: Array<ActivityItem> = [
   new ActivityShopItem(CONST.SHOP_ACTIVITY_DUOSUO, "多索雷斯假日复刻", {
     chou: 3,
   }),
-  new ActivityShopItem(uuidv4(), "2022年夏季活动", {
+  new ActivityShopItem(uuidv4(), "2022杜林夏季活动", {
     chou: 3,
   }),
   // new ActivityShopItem( 0, 0, 3, 0, "莱茵生命新活动", 'shop_laita', ResObtainType.activity),
@@ -393,3 +447,18 @@ export const documentedSSList : Array<MainSSItem> = [
   //   shi: 12 + 8 * 2 , 
   // }),   
 ]
+
+export const huangPiaoList :Array<PurchaseItem> = [
+
+];
+
+{
+  const today_month = today_date.month();
+  const deadline_month = deadline_date.month();
+  for(let i = today_month; i <= deadline_month; i++){
+    huangPiaoList.push(new PurchaseItem(0, uuidv4(), `${i+1}月黄票换抽`, {
+      chou_10:3,
+      chou: 8
+    }));
+  }
+}

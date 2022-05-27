@@ -55,7 +55,7 @@ class DetailedResources extends Resources{
     constructor(
         public readonly type: string,//资源的获取方式，可选值见ResObtainType
         public detail: string, //资源的详细说明
-        public readonly description: string, //资源的简略说明
+        public description: string, //资源的简略说明
         public readonly name: string,//should be unique 全局唯一标识符
         param: ResourcesParam
     ){
@@ -76,8 +76,69 @@ class PurchaseItem extends DetailedResources{
         ){
             super(CONST.ResObtainType.purchase , "", description,name, param)
             this.cpratio = cal_cp_ratio(price, this.shi, this.yu, this.chou, this.chou_10);
+            // const resString =
+            this.detail = `${this.description}：${formatResourcesString(param)};`
+            if(price > 0){
+                this.description += `[${this.cpratio.toFixed(2)}]`
+            }
+        }
+}
+
+class PurchaseAmountItem extends DetailedResources{
+    public _amount = 0;
+    public cpratio = 0;
+    //每份氪金项目所含资源数量
+    public readonly per_yu:number = 0;
+    public readonly per_chou:number = 0;
+    public readonly per_shi:number = 0;
+    public readonly per_chou_10:number = 0;
+    // public readonly per_price:number = 0;
+    constructor(
+        public per_price: number, //单价
+        name: string,
+        description: string,
+        param: ResourcesParam,
+
+        ){
+            super(CONST.ResObtainType.purchase , "", description,name, {})
+            if(param.shi) this.per_shi = param.shi;
+            if(param.yu) this.per_yu = param.yu;
+            if(param.chou) this.per_chou = param.chou;
+            if(param.chou_10) this.per_chou_10 = param.chou_10;
+
+            this.cpratio = cal_cp_ratio(this.per_price, this.per_shi, this.per_yu, this.per_chou, this.per_chou_10);
             // const resString = 
-            this.detail = `${description}：${formatResourcesString(param)}抽卡性价比为${this.cpratio.toFixed(2)}元/抽;`
+            if(per_price > 0){
+                this.description += `[${this.cpratio.toFixed(2)}]`
+            }
+            
+            
+        }
+
+        public set amount(new_amount: number){
+            
+            this._amount = new_amount;
+            this.yu = new_amount * this.per_yu;
+            this.chou = new_amount * this.per_chou;
+            this.shi = new_amount * this.per_shi;
+            this.chou_10 = new_amount * this.per_chou_10;
+
+            this.detail = `${this.description} x ${this._amount}：${formatResourcesString({
+                shi: this.shi,
+                yu: this.yu,
+                chou: this.chou,
+                chou_10: this.chou_10,
+            })}`
+            // console.log('set amount:', this.detail)
+        }
+
+        public get amount():number{
+            // console.log('get amount')
+            return this._amount
+        }
+
+        public get price(){
+            return this.per_price * this._amount;
         }
 }
 
@@ -142,4 +203,4 @@ type ResDetail = {
 }
 
 export {PurchaseItem, PurchaseList, Resources, ResDetail, ActivityItem, ActivityShopItem,
-RegularItem, MainSSItem}
+RegularItem, MainSSItem,PurchaseAmountItem}

@@ -23,10 +23,11 @@ export const store = createStore<State>({
   },
   mutations:{
     check(state, item: PurchaseItem){ //state 类似this指针
+        console.log(item.detail)
         if(item.name in state.checkeds == false){
             state.checkeds[item.name] = item;
         }else{
-            // console.log("试图check已经checked的item ： " + item.name);
+            // console.log("试图check已经checked的item ： " + item.detail);
         }
         
 
@@ -35,7 +36,7 @@ export const store = createStore<State>({
         if(item.name in state.checkeds == true){
             delete state.checkeds[item.name];
         }else{
-            // console.log("试图uncheck已经unchecked的item ： " + item.name);
+            // console.log("试图uncheck已经unchecked的item ： " + item.description);
         }
     },
   },
@@ -66,11 +67,16 @@ export const store = createStore<State>({
         return totalRes;
       },
 
-      totalChou(state, getters): number{
-          // const res :Resources = getters.totalResources(); //runtime-core.esm-bundler.js?5c40:218 Uncaught TypeError: getters.totalResources is not a function
-          const res :Resources = getters.totalResources;
-          const ret = (res.shi * 180 + res.yu) / 600.0 + res.chou + res.chou_10 * 10 ;
-          return ret;
+      totalChou(state, getters){
+          return (useShi: boolean):number => {
+            // const res :Resources = getters.totalResources(); //runtime-core.esm-bundler.js?5c40:218 Uncaught TypeError: getters.totalResources is not a function
+            const res :Resources = getters.totalResources;
+            let ret = (res.yu) / 600.0 + res.chou + res.chou_10 * 10
+            if(useShi)
+              ret += (res.shi * 180) / 600.0;
+            return ret;
+          }
+
       },
 
       allDetails(state) : Array<ResDetail>{
