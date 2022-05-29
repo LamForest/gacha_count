@@ -23,7 +23,7 @@ export const store = createStore<State>({
   },
   mutations:{
     check(state, item: PurchaseItem){ //state 类似this指针
-        console.log(item.detail)
+        // console.log(item.detail)
         if(item.name in state.checkeds == false){
             state.checkeds[item.name] = item;
         }else{
