@@ -4,6 +4,7 @@
       <purchase-selection
         :purchaseList="[]"
         title="账号库存资源"
+        :defaultExpand="true"
         :purchaseAmountList="ownedResources"
       />
     <el-alert
@@ -54,7 +55,7 @@
       <purchase-selection
         :purchaseList="monthCardPurchaseList"
         title="月卡、大月卡（每月寻访组合包）"
-        :defaultExpand="false"
+        :defaultExpand="true"
       />
     </div>
 

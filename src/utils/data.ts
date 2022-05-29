@@ -15,11 +15,17 @@ const days_diff = deadline_date.diff(today_date, 'day')
  */
 
  export const ownedResources :Array<PurchaseAmountItem> = [
-  new PurchaseAmountItem(0, uuidv4() , "账号中的源石", {
+  new PurchaseAmountItem(0, uuidv4() , "库存源石", {
     shi: 1
   }),
-  new PurchaseAmountItem(0, uuidv4() , "账号中的合成玉", {
+  new PurchaseAmountItem(0, uuidv4() , "库存合成玉", {
     yu: 1
+  }),
+  new PurchaseAmountItem(0, uuidv4() , "库存单抽", {
+    chou: 1
+  }),
+  new PurchaseAmountItem(0, uuidv4() , "库存十连", {
+    chou_10: 1
   }),
 
 ]

@@ -9,37 +9,41 @@
     <el-collapse-transition>
       <!-- <el-row justify="space-evenly" v-show="isExpand"> -->
       <div class="checkboxs-wrapper" v-show="isExpand">
+        <!-- 必须将el-checkbox用一个div包起来，否则 checkboxs-wrapper的justify-content属性不起作用-->
+        <div class='checkbox-div' v-for="(item, index) in purchaseList" :key="index">
         <el-checkbox
           class="checkbox"
-          v-for="(item, index) in purchaseList"
-          :key="index"
+          
+          
           @change="(checked) => handleChecked(index, checked)"
           :label="index"
           :model="checkboxVModel[index]"
         >
           {{ item.description }}
         </el-checkbox>
+        </div>
         <!-- <el-input-number v-model="inputNumberVModel[0]" :min="1" :max="10" /> -->
         <div
           v-for="(item, index) in shallowedCopiedAmountList"
           :key="index"
           class="amountWrapper"
         >
+          <div class="inputNumberTitle">
+            {{ item.description }}
+          </div>
           <!-- <div class=> -->
-            <el-input-number
-              @change="
-                (newValue, oldValue) => handleAmountChanged(index, newValue)
-              "
-              v-model="inputNumberVModel[index]"
-              :min="0"
-              :step="1"
-              step-strictly
-              size="small"
-            >
-            </el-input-number>
-            <span class="inputNumberSpan">
-              {{ item.description }} 
-            </span>
+          <el-input-number
+            @change="
+              (newValue, oldValue) => handleAmountChanged(index, newValue)
+            "
+            v-model="inputNumberVModel[index]"
+            :min="0"
+            :step="1"
+            step-strictly
+            size="small"
+          >
+          </el-input-number>
+
           <!-- </div> -->
         </div>
       </div>
@@ -118,7 +122,7 @@ export default defineComponent({
       if (new_amount != 0)
         store.commit("check", shallowedCopiedAmountList[index]);
 
-      console.log(index, new_amount);
+      // console.log(index, new_amount);
     };
     return {
       checkboxVModel,
@@ -134,6 +138,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.checkbox-div{
+    flex: 1 0 30%;
+    display: flex;
+    justify-content: start;
+}
 .checkbox {
   /* width: 180px; */
   /* checkbox默认margin-right=30px
@@ -142,9 +151,12 @@ export default defineComponent({
     el-row justify='space-evenly' 的效果并不好
     所以要手动设置margin
     */
-  margin-left: 10px;
-  margin-right: 0px;
-  flex: 0 0 30%;
+  /* margin-left: 10px; */
+  /* margin-right: 0px; */
+
+  /* flex-basis: 40%; */
+  /* flex-grow: 1; */
+  
   box-sizing: border-box;
   text-align: start;
 }
@@ -153,12 +165,14 @@ export default defineComponent({
   /* align-content: flex-start; */
   /* justify-content: center; */
   display: flex;
-  flex-flow: row wrap;
+  /* flex-flow: row wrap; */
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.inputNumberSpan {
+.inputNumberTitle {
   color: var(--el-text-color-regular);
-  font-size: var(--el-font-size-base);
+  font-size: 10px;
 
   font-weight: var(--el-font-weight-primary);
   margin-left: 5px;
@@ -167,7 +181,7 @@ export default defineComponent({
 .amountWrapper {
   /* display: flex; */
   /* flex: 0 0 50%; */
-  margin-left: 0;
+  /* margin-left: 0; */
   /* justify-items: left; */
 }
 </style>

@@ -18,8 +18,9 @@ div .el-alert{
 }
 
 .el-input-number{
-    max-width: 100px;
-    margin-right: 0;
+    width: 100px;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 .el-button{
@@ -36,4 +37,19 @@ div .el-alert{
     /* padding-bottom: 20px; */
     margin-top: 0px;
     margin-bottom:3px;
+}
+
+.el-checkbox{
+    height: auto;
+    padding-top: 4px;
+    margin-right: 10px;
+}
+
+
+.el-checkbox__label{
+    font-size: 10px;
+}
+
+.el-input--small{
+    --el-input-height: 16px;
 }

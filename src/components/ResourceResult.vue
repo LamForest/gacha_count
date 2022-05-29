@@ -43,7 +43,7 @@
 
       <!-- <el-row align="middle" justify="space-evenly"> -->
       <h4>
-        可以进行<span style="color: red" ref='animatedNumberRef'> </span>次干员寻访.
+        可以进行<div style="color: red; display: inline-block; width: 60px;" ref='animatedNumberRef'> </div>次干员寻访.
         <span v-show="price != 0"
           >需要充值<span style="color: red">{{ price }} </span>RMB.
         </span>
@@ -95,8 +95,9 @@ export default defineComponent({
     // })
 
     watch(chous, (newVal, oldVal)=>{
-      gsap.to(animatedNumber, {duration:1, innerHTML: newVal, snap:{
-        innerHTML: 0.01,
+      // animatedNumber.
+      gsap.to(animatedNumber, {duration:0.6, innerHTML: newVal, snap:{
+        innerHTML: 0.1,
       }})
     })
 
