@@ -47,9 +47,9 @@ div .el-alert{
 
 
 .el-checkbox__label{
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .el-input--small{
-    --el-input-height: 16px;
+    --el-input-height: 20px;
 }

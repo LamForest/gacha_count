@@ -172,7 +172,7 @@ export default defineComponent({
 
 .inputNumberTitle {
   color: var(--el-text-color-regular);
-  font-size: 10px;
+  font-size: 12px;
 
   font-weight: var(--el-font-weight-primary);
   margin-left: 5px;
