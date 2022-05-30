@@ -2,7 +2,7 @@
 网址：https://xunfang.vercel.app/
 
 ## 技术栈
-- 框架：[Vue3 组合式 API]([https://zh-hans.reactjs.org/docs/getting-started.html](https://v3.cn.vuejs.org/))
+- 框架：[Vue3 组合式 API](https://v3.cn.vuejs.org/)
 - 组件库与设计风格：[ElementPlus](https://element-plus.org/zh-CN/)
 - 语法：[TS](https://www.typescriptlang.org/docs/handbook/intro.html)
 - 状态管理：[Vuex](https://vuex.vuejs.org/)
