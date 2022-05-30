@@ -9,7 +9,7 @@
 - 时间日期：[dayjs](https://dayjs.fenxianglu.cn/)
 - 图标库：[Element Plus Icon](https://element-plus.org/zh-CN/component/icon.html)
 - Eslint：[alloy](https://github.com/AlloyTeam/eslint-config-alloy)
-- 其他库：访问计数[不蒜子](https://busuanzi.ibruce.info/)
+- 其他库：[不蒜子](https://busuanzi.ibruce.info/)
 
 ## Project setup
 ```
