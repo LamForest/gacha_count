@@ -150,12 +150,20 @@ class ActivityItem extends DetailedResources{
         ){
             super(CONST.ResObtainType.activity, "", description,name, param)
             let supplement = "";
-            if( name == CONST.ACTIVITY_LAITA || name == CONST.ACTIVITY_LAIYIN){
-                supplement = "（源石数量参考吾导先路)";
-            }else if(name == CONST.ACTIVITY_SUMMER){
-                supplement = "（源石数量参考多索雷斯)";
+            if('shi' in param){
+                if( name == CONST.ACTIVITY_LAITA || name == CONST.ACTIVITY_LAIYIN){
+                    supplement = "（源石数量参考吾导先路)";
+                }else if(name == CONST.ACTIVITY_SUMMER){
+                    supplement = "（源石数量参考多索雷斯)";
+                }
+                this.detail = `${description}关卡共计${this.shi}源石${supplement}`;
             }
-            this.detail = `${description}关卡共计${this.shi}源石${supplement}`;
+            
+            if('yu' in param){
+                //复刻紫票
+                this.detail = `${description}紫票可兑换${this.yu}合成玉${supplement}`;
+            }
+            
         }
 }
 

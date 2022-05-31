@@ -8,7 +8,7 @@
         :purchaseAmountList="ownedResources"
       />
     <el-alert
-      title="请在下方勾选尚未获得源石，并会在夏活前通关的关卡"
+      title="请在下方勾选尚未参加过的关卡；若已参加过复刻活动，可选择紫票"
       :closable="false"
       type="success"
     />

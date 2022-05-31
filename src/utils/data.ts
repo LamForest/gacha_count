@@ -159,11 +159,17 @@ export const monthCardList: Array<PurchaseItem> = [
 
 /**活动复刻 & 新活动 */
 export const reviewActivityList: Array<ActivityItem> = [
-  new ActivityItem(CONST.ACTIVITY_FUCHAO, "覆潮之下活动复刻", {
+  new ActivityItem(CONST.ACTIVITY_FUCHAO, "覆潮之下复刻（源石）", {
     shi: 28,
   }),
-  new ActivityItem(CONST.ACTIVITY_DUOSUO, "多索雷斯活动复刻", {
+  new ActivityItem(CONST.ACTIVITY_DUOSUO, "多索雷斯复刻（源石）", {
     shi: 40,
+  }),
+  new ActivityItem(uuidv4(), "覆潮之下复刻（紫票）", {
+    yu: 2000,
+  }),
+  new ActivityItem(uuidv4(), "多索雷斯复刻（紫票）", {
+    yu: 2000,
   }),
   // new ActivityItem( 28, 0, 0, 0, "覆潮之下", 'activity_fuchao', ResObtainType.activity),
   // new ActivityItem( 40, 0, 0, 0, "多索雷斯假日", 'activity_duosuo', ResObtainType.activity),

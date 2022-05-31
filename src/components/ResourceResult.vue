@@ -15,7 +15,7 @@
       </h4>
       <!-- title="在山和泥岩即将进店的情况下，不同玩家获取及消耗黄票的差别较大，暂不将黄票纳入统计" -->
       <el-alert
-        title="黄票的获取和消耗数量因人而异且较为复杂，故统计资源时暂不考虑黄票；但若你有足够的黄票，可以查看下方的黄票换抽"
+        title="黄票的获取和消耗数量因人而异差异较大，故统计资源时暂不考虑黄票；但若你有足够的黄票，可以查看下方的黄票换抽"
 
         :closable="false"
         type="warning"
@@ -164,5 +164,6 @@ export default defineComponent({
 
 h4 {
   text-align: center;
+  margin-bottom: 0px;
 }
 </style>
