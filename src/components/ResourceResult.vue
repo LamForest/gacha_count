@@ -3,6 +3,12 @@
   <div id="result">
     <!-- <el-alert title=""/> -->
     <div id="result-wrapper">
+      <el-alert
+        title="覆潮之下复刻进行中：如果已经兑换完活动商店寻访凭证，请自行减去3抽"
+
+        :closable="false"
+        type="info"
+      />
       <h4>
         今天 {{ today_date.format("YYYY-MM-DD") }} 至 夏活限定池结束（约为
         {{ deadline_date.format("YYYY-MM-DD") }}），大约或许至少能获得：
