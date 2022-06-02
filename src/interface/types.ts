@@ -25,7 +25,7 @@ const formatResourcesString = (param: ResourcesParam) => {
     return detail;
 }
 
-class ResourcesParam{
+export class ResourcesParam{
     shi?: number
     yu?: number
     chou?: number
@@ -77,7 +77,7 @@ class PurchaseItem extends DetailedResources{
             super(CONST.ResObtainType.purchase , "", description,name, param)
             this.cpratio = cal_cp_ratio(price, this.shi, this.yu, this.chou, this.chou_10);
             // const resString =
-            this.detail = `${this.description}：${formatResourcesString(param)};`
+            this.detail = `${this.description}：${formatResourcesString(param)}`
             if(price > 0){
                 this.description += `[${this.cpratio.toFixed(2)}]`
             }

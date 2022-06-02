@@ -4,7 +4,7 @@
     <!-- <el-alert title=""/> -->
     <div id="result-wrapper">
       <el-alert
-        title="覆潮之下复刻进行中：如果已经兑换完活动商店寻访凭证，请自行减去3抽"
+        title="6.2日更新: 移除覆潮之下活动商店；月卡获得的源石采用最保守的方法计算；绿票商店每3天换取1抽，9号换完"
 
         :closable="false"
         type="info"

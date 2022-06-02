@@ -1,10 +1,10 @@
 import * as CONST from "../interface/const";
-import { PurchaseItem, ActivityItem, ActivityShopItem, RegularItem,MainSSItem, PurchaseAmountItem } from "../interface/types";
+import { PurchaseItem, ActivityItem, ActivityShopItem, RegularItem,MainSSItem, PurchaseAmountItem, Resources, ResourcesParam } from "../interface/types";
 import { v4 as uuidv4 } from 'uuid';
 
 import dayjs from "dayjs";
 // import { mapActions } from "vuex";
-// const today_date = dayjs('2022-05-17T00:00:00.000+08:00');
+// export const today_date = dayjs('2022-06-09T00:00:00.000+08:00');
 export const today_date = dayjs().startOf('day')
 
 export const deadline_date = dayjs('2022-08-22T00:00:00.000+08:00');
@@ -149,7 +149,7 @@ export const monthCardList: Array<PurchaseItem> = [
   const months = days_diff / 30;
   const price = months * 30;
   const yu = days_diff * 200;
-  const shi = (months * 6); //保守一点，用floor
+  const shi = Math.floor(months)* 6; //保守一点，用floor
   const monthlyCarditem = new PurchaseItem(price, CONST.MONTHLY_CARD, `月卡 1元/天`, {
     yu, shi,
   });
@@ -199,9 +199,10 @@ export const activityShopList: Array<ActivityItem> = [
   new ActivityShopItem(CONST.SHOP_ACTIVITY_LAIYIN, "莱茵生命活动", {
     chou: 3,
   }),
-  new ActivityShopItem(CONST.SHOP_ACTIVITY_FUCHAO, "覆潮之下复刻", {
-    chou: 3,
-  }),
+  // 6.2日注释
+  // new ActivityShopItem(CONST.SHOP_ACTIVITY_FUCHAO, "覆潮之下复刻", {
+  //   chou: 3,
+  // }),
   new ActivityShopItem(CONST.SHOP_ACTIVITY_DUOSUO, "多索雷斯假日复刻", {
     chou: 3,
   }),
@@ -264,29 +265,72 @@ export const summerList: Array<RegularItem> = [
 //杂项
 export const otherList: Array<RegularItem> = [
   //TODO 每个月注释一行
-  new RegularItem(uuidv4(), '6月绿票商店第一层', {
-    yu: 600, chou: 2
-  }),
-  new RegularItem(uuidv4(), '7月绿票商店第一层', {
-    yu: 600, chou: 2
-  }),
-  new RegularItem(uuidv4(), '8月绿票商店第一层', {
-    yu: 600, chou: 2
-  }),
+  // new RegularItem(uuidv4(), '6月绿票商店第一层', {
+  //   yu: 600, chou: 2
+  // }),
+  // new RegularItem(uuidv4(), '7月绿票商店第一层', {
+  //   yu: 600, chou: 2
+  // }),
+  // new RegularItem(uuidv4(), '8月绿票商店第一层', {
+  //   yu: 600, chou: 2
+  // }),
   new RegularItem(uuidv4(), 'BUG修复、轮换池预载，活动更新（保守估计）', {
     yu: Math.round(days_diff / 6) * 200
   }),
   //TODO
-  new RegularItem(uuidv4(), '6月17号签到', {
-    chou: 1
-  }),
-  new RegularItem(uuidv4(), '7月17号签到', {
-    chou: 1
-  }),
-  new RegularItem(uuidv4(), '8月17号签到', {
-    chou: 1
-  }),
+  // new RegularItem(uuidv4(), '6月17号签到', {
+  //   chou: 1
+  // }),
+  // new RegularItem(uuidv4(), '7月17号签到', {
+  //   chou: 1
+  // }),
+  // new RegularItem(uuidv4(), '8月17号签到', {
+  //   chou: 1
+  // }),
 ]
+
+/**
+ * 每月签到
+ */
+{
+  let today_month = today_date.month();
+  let deadline_month = deadline_date.month();
+  if(today_date.date() >= 17) today_month += 1;
+  if(deadline_date.date() < 17) deadline_month -= 1;
+  for(let i = today_month; i <= deadline_month; i++){
+    otherList.push(new RegularItem( uuidv4(), `${i+1}月17号签到`, {
+      chou:1,
+    }));
+  }
+}
+/**
+ * 每月绿票商店第一层
+ */
+{
+  const today_month = today_date.month();
+  const deadline_month = deadline_date.month();
+  const res : ResourcesParam ={
+    
+  }
+  if(today_date.date() < 9) {
+    res.yu = 600;
+    if(today_date.date() < 3){
+      res.chou = 2;
+    }else if(today_date.date() < 6){
+      res.chou = 1;
+    }
+    otherList.push(new RegularItem(uuidv4(), `${today_month + 1}月绿票商店第一层`, res))
+  }
+  
+
+  // if(deadline_date.day() < 17) deadline_month -= 1;
+  for(let i = today_month + 1; i <= deadline_month; i++){
+    otherList.push(new RegularItem( uuidv4(), `${i+1}月绿票商店第一层`, {
+      yu: 600, chou: 2
+    }));
+  }
+}
+
 {
   //TODO 确认端午节没错
   let yu = 0;
