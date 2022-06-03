@@ -335,10 +335,10 @@ export const otherList: Array<RegularItem> = [
   //TODO 确认端午节没错
   let yu = 0;
   let shi = 0;
-  if(today_date.isBefore(dayjs('2022-06-03'))){
+  if(today_date.isBefore(dayjs('2022-06-05'))){
     yu += 200;
   }
-  if(today_date.isBefore(dayjs('2022-06-08'))){
+  if(today_date.isBefore(dayjs('2022-06-06'))){
     shi += 1
   }
   // const checkin_details = `端午节签到`
