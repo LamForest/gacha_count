@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import dayjs from "dayjs";
 // import { mapActions } from "vuex";
-// export const today_date = dayjs('2022-06-09T00:00:00.000+08:00');
+// export const today_date = dayjs('2022-06-09T15:59:00.000+08:00');
 export const today_date = dayjs().startOf('day')
 
 export const deadline_date = dayjs('2022-08-22T00:00:00.000+08:00');
@@ -277,10 +277,7 @@ export const otherList: Array<RegularItem> = [
   new RegularItem(uuidv4(), 'BUG修复、轮换池预载，活动更新（保守估计）', {
     yu: Math.round(days_diff / 6) * 200
   }),
-  //TODO
-  // new RegularItem(uuidv4(), '6月17号签到', {
-  //   chou: 1
-  // }),
+
   // new RegularItem(uuidv4(), '7月17号签到', {
   //   chou: 1
   // }),
@@ -288,6 +285,14 @@ export const otherList: Array<RegularItem> = [
   //   chou: 1
   // }),
 ]
+{
+  if(today_date.isBefore(dayjs('2022-06-09').hour(16))){
+    otherList.push(new RegularItem(uuidv4(), '6月9号大版本更新', {
+      shi: 5,
+    }))
+  }
+
+}
 
 /**
  * 每月签到
