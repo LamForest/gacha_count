@@ -159,15 +159,15 @@ export const monthCardList: Array<PurchaseItem> = [
 
 /**活动复刻 & 新活动 */
 export const reviewActivityList: Array<ActivityItem> = [
-  new ActivityItem(CONST.ACTIVITY_FUCHAO, "覆潮之下复刻（源石）", {
-    shi: 28,
-  }),
+  // new ActivityItem(CONST.ACTIVITY_FUCHAO, "覆潮之下复刻（源石）", {
+  //   shi: 28,
+  // }),
   new ActivityItem(CONST.ACTIVITY_DUOSUO, "多索雷斯复刻（源石）", {
     shi: 40,
   }),
-  new ActivityItem(uuidv4(), "覆潮之下复刻（紫票）", {
-    yu: 2000,
-  }),
+  // new ActivityItem(uuidv4(), "覆潮之下复刻（紫票）", {
+  //   yu: 2000,
+  // }),
   new ActivityItem(uuidv4(), "多索雷斯复刻（紫票）", {
     yu: 2000,
   }),
@@ -176,8 +176,8 @@ export const reviewActivityList: Array<ActivityItem> = [
 ]
 
 export const newActivityList: Array<ActivityItem> = [
-  new ActivityItem(CONST.ACTIVITY_LAITA, "新SideStory尘影余音", {
-    shi: 27,
+  new ActivityItem(CONST.ACTIVITY_LAITA, "新SideStory尘影余音EX关", {
+    shi: 16,
   }),
   new ActivityItem(CONST.ACTIVITY_LAIYIN, "莱茵生命新活动", {
     shi: 27,
@@ -193,9 +193,9 @@ export const newActivityList: Array<ActivityItem> = [
  * 活动商店
  */
 export const activityShopList: Array<ActivityItem> = [
-  new ActivityShopItem(CONST.SHOP_ACTIVITY_LAITA, "新SideStory尘影余音", {
-    chou: 3,
-  }),
+  // new ActivityShopItem(CONST.SHOP_ACTIVITY_LAITA, "新SideStory尘影余音", {
+  //   chou: 3,
+  // }),
   new ActivityShopItem(CONST.SHOP_ACTIVITY_LAIYIN, "莱茵生命活动", {
     chou: 3,
   }),
