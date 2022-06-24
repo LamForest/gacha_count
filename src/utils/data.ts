@@ -176,11 +176,14 @@ export const reviewActivityList: Array<ActivityItem> = [
 ]
 
 export const newActivityList: Array<ActivityItem> = [
-  new ActivityItem(CONST.ACTIVITY_LAITA, "新SideStory尘影余音EX关", {
-    shi: 16,
-  }),
-  new ActivityItem(CONST.ACTIVITY_LAIYIN, "莱茵生命新活动", {
+  // new ActivityItem(CONST.ACTIVITY_LAITA, "新SideStory尘影余音EX关", {
+  //   shi: 16,
+  // }),
+  new ActivityItem(CONST.ACTIVITY_LAIYIN, "新SideStory绿野幻梦", {
     shi: 27,
+  }),
+  new ActivityItem(uuidv4(), "新故事集未尽篇章", {
+    shi: 16,
   }),
   new ActivityItem(CONST.ACTIVITY_SUMMER, "2022杜林夏季活动", {
     shi: 40,
@@ -196,7 +199,7 @@ export const activityShopList: Array<ActivityItem> = [
   // new ActivityShopItem(CONST.SHOP_ACTIVITY_LAITA, "新SideStory尘影余音", {
   //   chou: 3,
   // }),
-  new ActivityShopItem(CONST.SHOP_ACTIVITY_LAIYIN, "莱茵生命活动", {
+  new ActivityShopItem(CONST.SHOP_ACTIVITY_LAIYIN, "新SideStory绿野幻梦", {
     chou: 3,
   }),
   // 6.2日注释
